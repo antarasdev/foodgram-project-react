@@ -6,16 +6,33 @@ from django.db.models import UniqueConstraint
 class User(AbstractUser):
     """Кастомная одель пользователя."""
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = [
-        'username',
-        'first_name',
-        'last_name',
-    ]
-    email = models.EmailField(
-        'email address',
-        max_length=254,
+    REQUIRED_FIELDS = ['username', 'first_name', 'last_name']
+
+    username = models.CharField(
+        'Username',
+        max_length=150,
         unique=True,
+        null=False,
+        blank=False
     )
+    email = models.EmailField(
+        'Email address',
+        max_length=254,
+        blank=False,
+        null=False,
+        unique=True
+    )
+    first_name = models.CharField(
+        'First name',
+        max_length=150,
+        blank=False
+    )
+    last_name = models.CharField(
+        'Last name',
+        max_length=150,
+        blank=False
+    )
+    password = models.CharField('Password', max_length=150)
 
     class Meta:
         ordering = ['id']
