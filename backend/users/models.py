@@ -4,7 +4,7 @@ from django.db.models import UniqueConstraint
 
 
 class User(AbstractUser):
-    """Кастомная одель пользователя."""
+    """Кастомная модель пользователя."""
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username', 'first_name', 'last_name']
 
