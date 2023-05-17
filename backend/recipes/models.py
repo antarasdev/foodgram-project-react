@@ -7,13 +7,13 @@ User = get_user_model()
 
 
 class Ingredient(models.Model):
-    """Модель ингридиентов."""
+    """Модель ингредиентов."""
     name = models.CharField('Название', max_length=200)
     measurement_unit = models.CharField('Единица измерения', max_length=200)
 
     class Meta:
-        verbose_name = 'Ингридиент'
-        verbose_name_plural = 'Ингридиенты'
+        verbose_name = 'Ингредиент'
+        verbose_name_plural = 'Ингредиенты'
         ordering = ['name']
 
     def __str__(self):
@@ -85,7 +85,7 @@ class Recipe(models.Model):
 
 
 class IngredientInRecipe(models.Model):
-    """Ингридиенты в рецепте."""
+    """Ингредиенты в рецепте."""
     recipe = models.ForeignKey(
         Recipe,
         on_delete=models.CASCADE,
@@ -105,6 +105,10 @@ class IngredientInRecipe(models.Model):
     class Meta:
         verbose_name = 'Ингредиент в рецепте'
         verbose_name_plural = 'Ингредиенты в рецептах'
+        constrains = [models.UniqueConstraint(
+            fields=['recipe', 'ingredient'],
+            name='unique_recipe_ingredient'
+            )]
 
     def __str__(self):
         return (

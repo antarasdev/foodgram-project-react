@@ -7,7 +7,6 @@ from rest_framework.response import Response
 
 from api.pagination import CustomPagination
 from api.serializers import CustomUserSerializer, SubscribeSerializer
-
 from .models import Subscribe, User
 
 
@@ -34,13 +33,6 @@ class CustomUserViewset(UserViewSet):
             serializer.is_valid(raise_exception=True)
             Subscribe.objects.create(user=user, author=author)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
-
-        if request.method == 'DELETE':
-            subscription = get_object_or_404(Subscribe,
-                                             user=user,
-                                             author=author)
-            subscription.delete()
-            return Response(status=status.HTTP_204_NO_CONTENT)
 
     @action(
         detail=False,

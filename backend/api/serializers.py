@@ -232,7 +232,6 @@ class RecipeWriteSerializer(ModelSerializer):
         instance.ingredients.clear()
         self.create_ingredients_amounts(recipe=instance,
                                         ingredients=ingredients)
-        instance.save()
         return instance
 
     def to_representation(self, instance):
