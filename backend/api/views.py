@@ -108,7 +108,7 @@ class RecipeViewSet(ModelViewSet):
         shopping_list += '\n'.join([
             f'- {ingredient["ingredient__name"]} '
             f'({ingredient["ingredient__measurement_unit"]})'
-            f' - {ingredient["amount"]}'
+            f' - {ingredient["quantity"]}'
             for ingredient in ingredients
         ])
         shopping_list += f'\n\nFoodgram ({now:%Y})'
