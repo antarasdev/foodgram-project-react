@@ -11,7 +11,7 @@ services:
     restart: always
 
   backend:
-    image: mikhailsoldatkin/foodgram-backend:latest
+    image: babyshit/foodgram-backend:latest
     restart: always
     volumes:
       - static_value:/app/static/
@@ -23,7 +23,7 @@ services:
       - ./.env
 
   frontend:
-    image: mikhailsoldatkin/foodgram-frontend:latest
+    image: babyshit/foodgram-frontend:latest
     volumes:
       - ../frontend/:/app/result_build/
 
