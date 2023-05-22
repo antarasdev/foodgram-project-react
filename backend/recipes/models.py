@@ -64,15 +64,15 @@ class Recipe(models.Model):
         validators=[MinValueValidator(1, message='Минимальное значение 1!')]
     )
     ingredients = models.ManyToManyField(
-         Ingredient,
-         through='IngredientInRecipe',
-         related_name='recipes',
-         verbose_name='Ингридиенты'
+        Ingredient,
+        through='IngredientInRecipe',
+        related_name='recipes',
+        verbose_name='Ингридиенты'
     )
     tags = models.ManyToManyField(
-         Tag,
-         related_name='recipes',
-         verbose_name='Теги'
+        Tag,
+        related_name='recipes',
+        verbose_name='Теги'
     )
 
     class Meta:
@@ -107,8 +107,7 @@ class IngredientInRecipe(models.Model):
         verbose_name_plural = 'Ингредиенты в рецептах'
         constraints = [models.UniqueConstraint(
             fields=['recipe', 'ingredient'],
-            name='unique_recipe_ingredient'
-            )]
+            name='unique_recipe_ingredient')]
 
     def __str__(self):
         return (
