@@ -1,4 +1,4 @@
-version: '2.6'
+version: '3.8'
 
 services:
 
@@ -11,7 +11,7 @@ services:
     restart: always
 
   backend:
-    image: babyshit/foodgram-backend:latest
+    image: babyshit/foodgram:v1.0
     restart: always
     volumes:
       - static_value:/app/static/
@@ -23,7 +23,7 @@ services:
       - ./.env
 
   frontend:
-    image: babyshit/foodgram-frontend:latest
+    image: babyshit/foodgram-frontend:v1.0
     volumes:
       - ../frontend/:/app/result_build/
 
