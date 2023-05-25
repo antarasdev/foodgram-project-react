@@ -96,8 +96,10 @@ jobs:
             sudo echo DB_PORT=${{ secrets.DB_PORT }} >> .env
             
             sudo docker-compose stop
-            sudo docker-compose rm -f backend
-            sudo docker-compose pull backend
+            sudo docker-compose rm -f backend frontend
+            sudo docker pull ${{ secrets.DOCKER_USERNAME }}/foodgram:v1.0
+            sudo docker pull ${{ secrets.DOCKER_USERNAME }}/foodgram-frontend:v1.0
+          
 
             sudo docker-compose up -d --build
             sudo docker-compose exec -T web python manage.py makemigrations  
