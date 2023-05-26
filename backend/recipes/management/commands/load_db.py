@@ -11,7 +11,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         self.stdout.write(self.style.WARNING(_('Загрузка ингредиентов')))
-        with open('backend/ingredients.json', encoding='utf-8') as file:
+        with open('ingredients.json', encoding='utf-8') as file:
             ingredients = json.loads(file.read())
             for ingredient in ingredients:
                 Ingredient.objects.get_or_create(**ingredient)
