@@ -101,8 +101,7 @@ jobs:
             sudo docker pull ${{ secrets.DOCKER_USERNAME }}/foodgram-frontend:v1.0
           
 
-            sudo docker-compose up -d --build
-            sudo docker-compose exec -T web python manage.py makemigrations  
+            sudo docker-compose up -d --build 
             sudo docker-compose exec -T web python manage.py migrate 
             sudo docker-compose exec -T web python manage.py collectstatic --no-input
             
