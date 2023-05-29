@@ -57,6 +57,16 @@ class Subscribe(models.Model):
         verbose_name="Автор",
         on_delete=models.CASCADE,
     )
+    first_name = models.CharField(
+        'First name',
+        max_length=150,
+        blank=False
+    )
+    last_name = models.CharField(
+        'Last name',
+        max_length=150,
+        blank=False
+    )
 
     class Meta:
         ordering = ['-id']
