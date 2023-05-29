@@ -51,6 +51,12 @@ class SubscribeSerializer(CustomUserSerializer):
             'recipes_count', 'recipes'
         )
         read_only_fields = ('email', 'username')
+        extra_kwargs = {
+            'email': {'required': False},
+            'username': {'required': False},
+            'first_name': {'required': False},
+            'last_name': {'required': False},
+        }
 
     def validate(self, data):
         author = self.instance
