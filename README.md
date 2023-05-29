@@ -1,5 +1,7 @@
 # Сайт Foodgram "Продуктовый помощник"
 
+![example workflow](https://github.com/babyshitt/foodgram-project-react/actions/workflows/foodgram_workflow.yml/badge.svg)
+
 ## _Онлайн-сервис для публикации рецептов_
 
 ### Описание проекта Foodgram
@@ -123,7 +125,7 @@ SECRET_KEY='секретный ключ Django'
 - Создать и запустить контейнеры Docker, последовательно выполнить команды по созданию миграций, сбору статики, 
 созданию суперпользователя, как указано выше.
 ```
-docker-compose -f docker-compose-local.yml up -d
+sudo docker-compose -f docker-compose-local.yml up -d
 
 
 - После запуска проект будут доступен по адресу: [http://localhost/](http://localhost/)
