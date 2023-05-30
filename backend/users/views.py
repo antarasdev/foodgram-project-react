@@ -7,7 +7,6 @@ from rest_framework.response import Response
 
 from api.pagination import CustomPagination
 from api.serializers import CustomUserSerializer, SubscribeSerializer
-
 from .models import Subscribe, User
 
 
