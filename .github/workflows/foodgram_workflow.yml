@@ -76,10 +76,10 @@ jobs:
             sudo echo DB_HOST=${{ secrets.DB_HOST }} >> .env
             sudo echo DB_PORT=${{ secrets.DB_PORT }} >> .env
                     
-            sudo docker-compose up -d 
-            sudo docker-compose exec -T web python manage.py migrate
-            sudo docker-compose exec -T web python manage.py loaddata database.json 
-            sudo docker-compose exec -T web python manage.py collectstatic --no-input
+            sudo docker-compose up -d
+            sudo docker-compose exec backend python manage.py migrate
+            sudo docker-compose exec backend python manage.py collectstatic --noinput
+            sudo docker-compose exec backend python manage.py loaddata database.json
             
   send_message:
     runs-on: ubuntu-latest
