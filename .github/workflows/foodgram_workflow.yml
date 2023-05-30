@@ -61,10 +61,10 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           script: |
             sudo docker pull ${{ secrets.DOCKER_USERNAME }}/foodgram:v1.0
-
+            sudo systemctl stop nginx
             sudo docker-compose stop
-            sudo docker-compose rm backend frontend
-
+            sudo docker-compose rm backend
+            
             rm .env
             touch .env
 
@@ -77,9 +77,6 @@ jobs:
             sudo echo DB_PORT=${{ secrets.DB_PORT }} >> .env
                     
             sudo docker-compose up -d
-            sudo docker-compose exec backend python manage.py migrate
-            sudo docker-compose exec backend python manage.py collectstatic --noinput
-            sudo docker-compose exec backend python manage.py loaddata database.json
             
   send_message:
     runs-on: ubuntu-latest
