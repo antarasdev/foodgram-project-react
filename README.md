@@ -88,7 +88,7 @@ sudo docker-compose exec backend python manage.py collectstatic --noinput
 
 - Наполнить базу данных содержимым из файла ingredients.json:
 ```
-sudo docker-compose exec backend python manage.py loaddata ingredients.json
+sudo docker-compose exec backend python manage.py loaddata database.json
 ```
 
 - Для остановки контейнеров Docker:
@@ -135,3 +135,6 @@ sudo docker-compose -f docker-compose-local.yml up -d
 
 
 ### Автор backend'а: [Андрей Тарасов ](https://github.com/babyshitt)
+
+# Проект можно посмотреть по ссылке
+http://51.250.80.224/
