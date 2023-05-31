@@ -2,7 +2,6 @@ import json
 
 from django.core.management.base import BaseCommand
 from django.utils.translation import gettext_lazy as _
-
 from recipes.models import Ingredient
 
 
