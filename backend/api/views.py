@@ -5,6 +5,7 @@ from django.utils import timezone
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import status
 from rest_framework.decorators import action
+from rest_framework.pagination import PageNumberPagination
 from rest_framework.permissions import SAFE_METHODS, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.status import HTTP_400_BAD_REQUEST
@@ -34,6 +35,7 @@ from .serializers import (
 class IngredientViewSet(ReadOnlyModelViewSet):
     queryset = Ingredient.objects.all()
     serializer_class = IngredientSerializer
+    pagination_class = PageNumberPagination
     permission_classes = (IsAdminOrReadOnly,)
     filter_backends = (DjangoFilterBackend,)
     filterset_class = IngredientFilter
