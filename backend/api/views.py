@@ -21,7 +21,6 @@ from recipes.models import (
     ShoppingCart,
     Tag
 )
-
 from .serializers import (
     IngredientSerializer,
     RecipeReadSerializer,
