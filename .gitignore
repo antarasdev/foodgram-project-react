@@ -109,6 +109,8 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+.vscode
+.isort.cfg
 
 # Spyder project settings
 .spyderproject
@@ -130,3 +132,6 @@ dmypy.json
 
 # .idea
 .idea
+
+.isort
+
